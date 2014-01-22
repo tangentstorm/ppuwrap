@@ -1,0 +1,109 @@
+[
+  {
+    "Type": "unit",
+    "Name": "uhellopy",
+    "Version": 164,
+    "TargetCPU": "x86_64",
+    "TargetOS": "FreeBSD-x86-64",
+    "CRC": "11251F9E",
+    "InterfaceCRC": "00DAE6FC",
+    "Uses": [
+      {
+        "Type": "unit",
+        "Name": "System",
+        "CRC": "BD06FE73",
+        "InterfaceCRC": "D548D673"
+      },
+      {
+        "Type": "unit",
+        "Name": "objpas",
+        "CRC": "2B69FABB",
+        "InterfaceCRC": "61528A26"
+      }
+    ],
+    "Units": [
+      "system"
+    ],
+    "Files": [
+      {
+        "Type": "file",
+        "Name": "uhellopy.pas",
+        "Time": "2014-01-21 19:58:30"
+      }
+    ],
+    "Interface": [
+      {
+        "Type": "obj",
+        "Name": "THelloPy",
+        "Id": 0,
+        "SymId": 4,
+        "Pos": {
+          "Line": 8,
+          "Col": 14
+        },
+        "ObjType": "class",
+        "Ancestor": {
+          "Unit": 0,
+          "Id": 612
+        },
+        "Size": 8,
+        "Fields": [
+          {
+            "Type": "proc",
+            "Name": "SumTwoIntegers",
+            "Id": 1,
+            "SymId": 5,
+            "Pos": {
+              "Line": 10,
+              "Col": 22
+            },
+            "Visibility": "published",
+            "Options": [
+              "function",
+              "classmethod"
+            ],
+            "RetType": {
+              "Unit": 0,
+              "Id": 9
+            },
+            "Params": [
+              {
+                "Type": "param",
+                "Name": "x",
+                "SymId": 6,
+                "Pos": {
+                  "Line": 10,
+                  "Col": 37
+                },
+                "VarType": {
+                  "Unit": 0,
+                  "Id": 9
+                }
+              },
+              {
+                "Type": "param",
+                "Name": "y",
+                "SymId": 7,
+                "Pos": {
+                  "Line": 10,
+                  "Col": 40
+                },
+                "VarType": {
+                  "Unit": 0,
+                  "Id": 9
+                }
+              }
+            ]
+          },
+          {
+            "Type": "classref",
+            "Id": 2,
+            "Ref": {
+              "Id": 0
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
