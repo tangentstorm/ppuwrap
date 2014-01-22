@@ -19,10 +19,17 @@ procedure help;
     halt;
   end;
 
-procedure main(dumpfile : string; genpy: boolean);
-  var doc : DOM.TXMLDocument;
+const
+  xpProcs = '/unit/interface//proc/name';
+
+procedure main(dumpfile	: string; genpy: boolean);
+  var doc : DOM.TXMLDocument; item : pointer;
   begin
     xmlread.ReadXMLFile( doc, dumpfile );
+    for item in EvaluateXPathExpression( xpProcs, doc ).AsNodeSet do
+      begin
+	writeln( TDOMNode( item ).textContent );
+      end;
   end;
 
 var
