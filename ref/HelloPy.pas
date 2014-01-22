@@ -1,32 +1,18 @@
 library HelloPy;
 {$MODE OBJFPC}
-{
-
-  Minimal Python module (library) that includes a single function.
+{ Minimal Python module (library) that includes a single function.
 
   Author: Phil (MacPgmr at fastermac.net).
-
-  For a good explanation of modules from a C perspective, see:
-    http://superjared.com/entry/anatomy-python-c-module/
-
-  To compile this module:
-    - With Delphi: Open this .dpr file and compile.
-    - With Lazarus: Open .lpi file and compile.
-
-  To deploy module:
-    - With Delphi: Rename compiled .dll to .pyd.
-    - With Lazarus on Windows: Rename compiled .so to .pyd.
-    - With Lazarus on OS X and Linux: .so extension is okay.
-
-}
-
-
-
-
+  http://wiki.freepascal.org/Developing_Python_Modules_with_Pascal
+  
+  Modified by Michal J Wallace <http://tangentstorm.com/>
+  - I moved the simple addition function into a separate unit,
+    with the intent of regenerating this python module
+    automatically based on the output of ppudump. }
 uses
   SysUtils,
+  uhellopy,
   PyAPI;
-
 
 function SumTwoIntegers(Self : PyObject; Args : PyObject)
   : PyObject; cdecl;
@@ -34,8 +20,10 @@ var
   Arg1 : Integer;
   Arg2 : Integer;
 begin
-  PyArg_ParseTuple(Args, 'ii', @Arg1, @Arg2); // Get the two input arguments
-  Result := PyInt_FromLong(Arg1 + Arg2);      // Add them and return the sum
+  // Get the two input arguments
+  PyArg_ParseTuple(Args, 'ii', @Arg1, @Arg2);
+  // Pass them to the pascal implementation:
+  Result := PyInt_FromLong(THelloPy.SumTwoIntegers(Arg1, Arg2));
 end;
 
 
